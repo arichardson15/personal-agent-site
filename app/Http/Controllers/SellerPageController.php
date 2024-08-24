@@ -8,7 +8,7 @@ class SellerPageController extends Controller
 {
     public function show()
     {
-        $faqs = FAQS::where('siteSection', 'Sell')->get();
+        $faqs = FAQS::all();
 
         return view('sell-page', ['faqs' => $faqs]);
     }

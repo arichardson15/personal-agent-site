@@ -105,21 +105,30 @@ const BuyPage = () => {
                     </div>
 
                 ) : (
-                    <div id="faqs">
-                        {faqs.length > 0 ? (
-                            faqs.map((faq, index) => (
-                                <FAQComponenet
-                                    key={index}
-                                    faqQuestion={faq.question || ''}
-                                    faqAnswer={faq.answer || ''}
-                                    faqQuestionCount={faq.number || ''}
-                                />
-                            ))
-                        ) : (
-                            <p>No FAQs available.</p> // You can customize this message or remove it
-                        )}
-                    </div>
-                )}
+                    <>
+                        <div className={"text-xl font-grotesk font-bold text-center self-center tracking-tight text-gray-900 sm:text-2xl"}
+                             id="faqs">
+                            <button className={"mt-4 px-4 p-14 py-2 bg-tertiary mb-3.5 font-bold font-grotesk text-white rounded"}
+                                    onClick={() => setViewFAQS(false)}>
+                                Collapse Frequently Asked Questions
+                            </button>
+                        </div>
+                        <div>
+                            {faqs.length > 0 ? (
+                                faqs.map((faq, index) => (
+                                    <FAQComponenet
+                                        key={index}
+                                        faqQuestion={faq.question || ''}
+                                        faqAnswer={faq.answer || ''}
+                                        faqQuestionCount={faq.number || ''}
+                                    />
+                                ))
+                            ) : (
+                                <p>No FAQs available.</p> // You can customize this message or remove it
+                            )}
+                        </div>
+                    </>
+                    )}
                 <br/>
             </div>
 

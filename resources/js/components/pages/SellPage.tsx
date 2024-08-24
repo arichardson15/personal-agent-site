@@ -9,6 +9,7 @@ import FooterBanner from "../FooterBanner";
 import FAQComponenet from "../FAQComponent";
 import HomeBuyBuyerWidget from "../HomeBuyBuyerWidget";
 import HomeBuySellerWidget from "../HomeBuySellerWidget";
+import TextImageSection from "../TextImageSection";
 
 
 interface SellPageProps {
@@ -27,11 +28,15 @@ const SellPage = () => {
     const [aboutText, setAboutText] = useState(null);
     const [faqs, setFAQS] = useState({});
     const [viewFAQS, setViewFAQS] = useState(false);
+    const [whySellWithUs, setWhySellWithUs] = useState({});
 
     useEffect(() => {
         const faqData = document.getElementById('app').getAttribute('data-faqs');
-        setFAQS(JSON.parse(faqData));
-        console.log(faqData);
+        const parsedFaqData = JSON.parse(faqData);
+        const filteredFaqs = parsedFaqData.filter(faq => faq.siteSection === 'Sell');
+        const whySellWithUs = parsedFaqData.filter(faq => faq.siteSection === 'WhySellWithUs');
+        setFAQS(filteredFaqs);
+        setWhySellWithUs(whySellWithUs)
     }, []);
     useEffect(() => {
 
@@ -53,17 +58,24 @@ const SellPage = () => {
         <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{height: '100%'}}>
             <HeaderBanner user={user}/>
             <div className={"flex-grow"}>
+
+                <div>
+                    {whySellWithUs.length > 0 ? (
+                        whySellWithUs.map((whySellWithUs, index) => (
+                            <TextImageSection
+                                contentText={whySellWithUs.question + whySellWithUs.answer}
+                            />
+                        ))
+                    ) : (
+                        <p>No FAQs available.</p> // You can customize this message or remove it
+                    )}
+                </div>
                 <ImageTextSection
                     contentImage1={'images/mortgage-calculator-picture.jpeg'}
                     headerText={'Mortgage Questions?'}
                     contentText={
                         <>
-                            Mortgages can be a tricky thing to manage. If you have any questions, please just reach out
-                            so we can schedule a time to walk you through the whole process.
-                            <br/>
-                            <br/>
-                            If you are curious to find what a potential mortgage payment would look like, please check
-                            out our in-house
+
                             <a href="/mortgage-calculator" className={"text-blue-700 font-bold"}> Mortgage
                                 Calculator</a>.
                         </>
@@ -85,12 +97,15 @@ const SellPage = () => {
                 </div>
 
             ) : (
-                <div className={"text-xl font-grotesk font-bold tracking-tight text-center text-gray-900 sm:text-2xl"}
+                <>
+                <div className={"text-xl font-grotesk font-bold self-center tracking-tight text-gray-900 sm:text-2xl"}
                      id="faqs">
                     <button className={"mt-4 px-4 p-14 py-2 bg-tertiary mb-3.5 font-bold font-grotesk text-white rounded"}
                             onClick={() => setViewFAQS(false)}>
-                        Collapse Frequestly Asked Questions
+                        Collapse Frequently Asked Questions
                     </button>
+                </div>
+                <div>
                     {faqs.length > 0 ? (
                         faqs.map((faq, index) => (
                             <FAQComponenet
@@ -104,6 +119,7 @@ const SellPage = () => {
                         <p>No FAQs available.</p> // You can customize this message or remove it
                     )}
                 </div>
+                </>
             )}
             <br/>
 
