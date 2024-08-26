@@ -38,6 +38,8 @@ Route::get('/edit-faqs', function () {
 });
 Route::post('/new-contact', [\App\Http\Controllers\ContactFormController::class, 'sendContactForm']);
 
+Route::post('/change-password', [\App\Http\Controllers\LoginPageController::class, 'updatePassword']);
+
 Route::post('/create-user', [\App\Http\Controllers\LoginPageController::class, 'createUser']);
 
 Route::post('/save-field', [\App\Http\Controllers\ManagerController::class, 'saveField']);

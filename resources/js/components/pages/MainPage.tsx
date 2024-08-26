@@ -42,16 +42,17 @@ useEffect(() => {
     return (
         <div>
                 <HeaderBanner user={user}></HeaderBanner>
+            <ContactUsMain>
+            </ContactUsMain>
                 <ImageTextImageSection
                     contentImage1Caption={'Jen Mains'}
-                    contentImage2Caption={'Ayden Mains'}
+                    contentImage2Caption={'Ayden Anderson'}
                     headerText={'Who Are We?'}
                     contentText={aboutText}
                     contentImage1={'/images/thumbnail_Jen_Mains.jpg'}
-                    contentImage2={'/images/thumbnail_Ayden_Mains.png'}>
+                    contentImage2={'/images/thumbnail_Ayden_Mains.png'}
+                    textID={'about-main-text'}>
                 </ImageTextImageSection>
-            <ContactUsMain>
-            </ContactUsMain>
             <FooterBanner></FooterBanner>
         </div>
             );

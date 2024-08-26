@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('question');
             $table->longText('answer');
             $table->integer('number');
+            $table->text('picture');
         });
     }
 

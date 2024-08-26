@@ -30,7 +30,6 @@ const BuyPage = () => {
     useEffect(() => {
         const faqData = document.getElementById('app').getAttribute('data-faqs');
         setFAQS(JSON.parse(faqData));
-        console.log(faqData);
     }, []);
     useEffect(() => {
 

@@ -35,43 +35,42 @@ const ContactUsMain = () => {
             });
     };
 
-    document.addEventListener('scroll', function () {
-        const image = document.querySelector('.image-blur');
-        const imagePosition = image.getBoundingClientRect().top;
-        const threshold = 450;
-
-        if (imagePosition < threshold) {
-            image.classList.add('blur');
-        } else {
-            image.classList.remove('blur');
-        }
-    });
-
 
     return (
 
-        <div className="isolate relative">
+        <div className="relative">
             <div style={{position: 'relative', width: '100%', height: '750px', overflow: 'hidden'}}>
-                <img src="/images/house-3133771_1920.jpg" style={{transform: 'translate(-0%, -20%)'}}
+                <img src="/images/house-3133771_1920.jpg" style={{width: '100%', transform: 'translate(-0%, -20%)'}}
                      className="object-cover absolute max-h-[1000px] min-w-max image-blur" alt="House Image"></img>
+                <div className="absolute inset-0 bg-black opacity-45"></div>
             </div>
             {!connected ? (
-            !connectUs ? (
-                <div>
+                !connectUs ? (
+                    <div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center p-4 rounded" style={{backgroundColor: 'rgba(254, 238, 221, 0.8)'}}>
-                            <h2 className="text-3xl font-grotesk tracking-tight text-black sm:text-2xl">Let's schedule a
-                                time to see if we are a good fit for you!</h2>
+                        <div className="text-center p-4 rounded"
+                        >
+                            <h2 className="text-3xl font-grotesk tracking-tight font-bold text-white sm:text-6xl">Your
+                                Next Home Awaits!</h2>
                             <p className="mt-2 text-lg leading-8 text-white">
                             </p>
-                            <button className="mt-4 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
-                                    onClick={() => setConnectUs(true)}>Let's Connect
+                            <a
+                                className="mt-4 border-white border-2 mx-5 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
+                                href={'/buy'}>Buy With Heritage
+                            </a>
+                            <a
+                                className="mt-4 border-white border-2 mx-5 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
+                                href={'/sell'}>Sell With Heritage
+                            </a>
+                            <button
+                                className="mt-4 border-white border-2 mx-5 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
+                                onClick={() => setConnectUs(true)}>Let's Connect!
                             </button>
                         </div>
                     </div>
-                </div>) : (<div className={'absolute inset-0 flex items-center justify-center'}>
-                <div className="mx-auto mt-6 max-w-xl sm:mt-6 p-10"
-                     style={{backgroundColor: 'rgba(254, 238, 221, 0.8)'}}>
+                    </div>) : (<div className={'absolute inset-0 flex items-center justify-center'}>
+                    <div className="mx-auto mt-6 max-w-xl sm:mt-6 p-10"
+                         style={{backgroundColor: 'rgba(254, 238, 221, 0.8)'}}>
                     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                         <label className="block col-span-2 text-sm font-semibold leading-6 text-red-700">
                             {alertMessage}

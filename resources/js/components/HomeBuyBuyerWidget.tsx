@@ -41,6 +41,7 @@ let HomeBuyBuyerWidget = forwardRef<HTMLDivElement, HomeBuyBuyerWidgetProps>((pr
     }, []);
 
     return (
+        <div style={{borderRadius: '100px'}} className="mx-auto bg-white py-3 grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8">
             <div className="mx-auto text-center">
                 <h2 className="text-3xl font-grotesk font-bold tracking-tight text-gray-900 sm:text-4xl">{headerText}</h2>
                 <p className="mt-6 text-lg leading-8 text-gray-600 font-grotesk">
@@ -50,7 +51,8 @@ let HomeBuyBuyerWidget = forwardRef<HTMLDivElement, HomeBuyBuyerWidgetProps>((pr
                     <div id="homebot_homeowner"></div>
                 </div>
             </div>
-    );
-});
-export default HomeBuyBuyerWidget;
+        </div>
+            );
+            });
+            export default HomeBuyBuyerWidget;
 

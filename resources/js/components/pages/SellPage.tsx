@@ -2,14 +2,12 @@ import '../../../css/app.css';
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import HeaderBanner from "../HeaderBanner";
-import ImageTextImageSection from "../ImageTextImageSection";
 import axios from "axios";
 import ImageTextSection from "../ImageTextSection";
 import FooterBanner from "../FooterBanner";
 import FAQComponenet from "../FAQComponent";
-import HomeBuyBuyerWidget from "../HomeBuyBuyerWidget";
 import HomeBuySellerWidget from "../HomeBuySellerWidget";
-import TextImageSection from "../TextImageSection";
+import WhySellWithUs from "../WhySellWithUs";
 
 
 interface SellPageProps {
@@ -58,31 +56,9 @@ const SellPage = () => {
         <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{height: '100%'}}>
             <HeaderBanner user={user}/>
             <div className={"flex-grow"}>
-
-                <div>
-                    {whySellWithUs.length > 0 ? (
-                        whySellWithUs.map((whySellWithUs, index) => (
-                            <TextImageSection
-                                contentText={whySellWithUs.question + whySellWithUs.answer}
-                            />
-                        ))
-                    ) : (
-                        <p>No FAQs available.</p> // You can customize this message or remove it
-                    )}
-                </div>
-                <ImageTextSection
-                    contentImage1={'images/mortgage-calculator-picture.jpeg'}
-                    headerText={'Mortgage Questions?'}
-                    contentText={
-                        <>
-
-                            <a href="/mortgage-calculator" className={"text-blue-700 font-bold"}> Mortgage
-                                Calculator</a>.
-                        </>
-                    }
-                />
+                <WhySellWithUs whySellWithUs={whySellWithUs}></WhySellWithUs>
                 <br/>
-            </div>
+
             <HomeBuySellerWidget
                 contentText={'The Homebot tool will give your house valuation based on the market around it. Please keep in mind the numbers provided are just estimates. '}
                 headerText={'Home Value'}></HomeBuySellerWidget>
@@ -116,12 +92,13 @@ const SellPage = () => {
                             />
                         ))
                     ) : (
-                        <p>No FAQs available.</p> // You can customize this message or remove it
+                        <p>No frequently asked questions available.</p> // You can customize this message or remove it
                     )}
                 </div>
                 </>
             )}
             <br/>
+            </div>
 
             <FooterBanner/>
         </div>
