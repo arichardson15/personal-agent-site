@@ -7,6 +7,7 @@ import FooterBanner from "../FooterBanner";
 import Login from "../CreateUser";
 import SignIn from "../SignIn";
 import CreateUser from "../CreateUser";
+import ForgotPassword from "../ForgotPassword";
 
 interface LoginProps {
     user: {
@@ -20,6 +21,7 @@ const userElement = document.getElementById('app');
 const user = userElement ? JSON.parse(userElement.getAttribute('data-user')) : null;
 const LoginPage = () => {
     const [creatingUser, setCreatingUser] = useState(false);
+    const [forgotPassword, setForgotPassword] = useState(false);
 
     useEffect(() => {
         axios.get(`/get-custom-fields`)
@@ -40,10 +42,13 @@ const LoginPage = () => {
                 className="mx-auto h-36 w-auto"
             />
             <div className={"flex-grow"}>
-                {!creatingUser ? (
-                        <SignIn setCreateUser={setCreatingUser}></SignIn>)
-                    : (
-                        <CreateUser></CreateUser>)}
+                {creatingUser ? (
+                    <CreateUser />
+                ) : forgotPassword ? (
+                    <ForgotPassword setForgotPassword={setForgotPassword} setCreateUser={setCreatingUser} />
+                ) : (
+                    <SignIn setForgotPassword={setForgotPassword} setCreateUser={setCreatingUser} />
+                )}
                 <br></br>
             </div>
             <FooterBanner></FooterBanner>

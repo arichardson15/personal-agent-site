@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'email' => env('TWILIO_TO_EMAIL_ADDRESS', 'local'),
+    'phone' => env('TWILIO_TO_PHONE_NUMBER', 'local'),
+
 ];

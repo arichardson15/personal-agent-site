@@ -56,4 +56,19 @@ class LoginPageController extends Controller
         Auth::logout();
         return 'Successfully logged out';
     }
+
+    public function updatePassword(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'newPassword' => 'required|string|min:8',
+        ]);
+
+        $user = SiteUsers::where('email', $request->email)->first();
+        if(!$user){
+            return response()->json(['message' => 'Could not find user with given email.'], 422);
+        }
+        $user->password = Hash::make($request->newPassword);
+        $user->save();
+        return response()->json(['message' => 'Password updated successfully.'], 204);
+    }
 }

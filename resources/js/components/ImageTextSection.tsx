@@ -1,4 +1,4 @@
-import React, {forwardRef, HTMLAttributes, useEffect, useState} from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 
 interface ImageTextSectionProps {
     contentText?: string;
@@ -28,42 +28,46 @@ let ImageTextSection = forwardRef<HTMLDivElement, ImageTextSectionProps>((props,
                 setTextHeight(elementHeight + 'px');
             }
         }, 100);
-    }, []);
-
+    }, [textID]);
 
     return (
-        <div className="bg-white py-3">
-            <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 grid-cols-2">
-                <div style={{height: '350px', justifySelf:'center'}}>
+        <div style={{ borderRadius: '100px' }} className="py-3">
+            <div style={{ borderRadius: '100px' }} className="mx-auto grid max-w-7xl gap-x-8 bg-white gap-y-10 px-6 lg:px-8 grid-cols-2">
+                <div
+                    style={{ display: 'flex',alignItems: 'center', justifyContent: 'center', padding: '10px' }}
+                >
                     <img
-                        style={{borderRadius: '100px', minHeight: "350px", height: textHeight}}
-                        className={'h-full'}
+                        style={{ borderRadius: '100px', height: textHeight }}
+                        className="h-full"
                         src={contentImage1}
+                        alt="Content"
                     />
                     <span
                         style={{
-                            bottom: '10px',
-                            left: '10px',
-                            color: 'black',  // Adjust the color as needed
+                            marginTop: '10px',
+                            color: 'black',
                             padding: '5px',
                             fontFamily: 'grotesk',
-                            fontSize: '28px',
+                            fontSize: '20px',
                             borderRadius: '5px',
                             fontWeight: 'bold',
+                            textAlign: 'center'
                         }}
                     >
-    {contentImage1Caption}
-  </span>
+                        {contentImage1Caption}
+                    </span>
                 </div>
-                <div id={textID} className="max-w-2xl col-span-1">
-                    <h2 className="text-3xl font-grotesk font-bold tracking-tight text-gray-900 sm:text-4xl">{headerText}</h2>
-                    <p className="mt-6 text-lg leading-8 text-gray-600 font-grotesk">
-                        {contentText}
-                    </p>
+                <div id={textID} className="max-w-2xl col-span-1 flex items-center">
+                    <div>
+                        <h2 className="text-3xl font-grotesk font-bold tracking-tight text-gray-900 sm:text-4xl">{headerText}</h2>
+                        <p className="mt-6 text-lg leading-8 text-gray-600 font-grotesk">
+                            {contentText}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     );
 });
-export default ImageTextSection;
 
+export default ImageTextSection;

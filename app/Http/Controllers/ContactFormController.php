@@ -22,7 +22,7 @@ class ContactFormController extends Controller
     {
         $data = $request->all();
 
-        Mail::to(env('TWILIO_TO_EMAIL_ADDRESS'))->send(new ContactFormMail($data));
+        Mail::to(config('app.email'))->send(new ContactFormMail($data));
         $textSent = $this->textNotification($data);
 
         return response()->json(['message' => 'Email sent successfully!', $textSent], 200);
@@ -36,7 +36,7 @@ class ContactFormController extends Controller
         $message .= "Phone Number: " . $data['phoneNumber'] . "\n";
         $message .= "Message: " . $data['message'];
 
-        $to = env('TWILIO_TO_PHONE_NUMBERS');
+        $to = config('app.phone');
         try {
             $success = $this->smsService->sendSms($to, $message);
         } catch (\Exception $e) {

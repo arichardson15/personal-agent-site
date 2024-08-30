@@ -51,7 +51,7 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
                                   top: '0', // Adjust position as needed
                                   left: '0', // Position it on the left side
                                   width: '280px', // Adjust this percentage as needed
-                                  height: '182px', // Adjust height as needed
+                                  height: '185px', // Adjust height as needed
                                   backgroundColor: '#203128',
                                   borderTopRightRadius: '1000px', // Apply rounding to the right corners
                                   borderBottomRightRadius: '1000px',
