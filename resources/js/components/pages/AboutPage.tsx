@@ -15,7 +15,7 @@ interface AboutPageProps {
         // Include other user fields as needed
     } | null;
 }
-
+//laravel breeze to handle users signing in and how to pass user to everything.
 const userElement = document.getElementById('app');
 const user = userElement ? JSON.parse(userElement.getAttribute('data-user')) : null;
 const AboutPage = () => {

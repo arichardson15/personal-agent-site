@@ -48,6 +48,9 @@ Route::post('/login', [\App\Http\Controllers\LoginPageController::class, 'logInU
 
 Route::post('/logOut', [\App\Http\Controllers\LoginPageController::class, 'logOutUser']);
 
-Route::get('/get-custom-fields', [MainPageController::class, 'getCustomFields']);
+Route::middleware('auth')->group(function () {
 
-Route::get('/get-faqs', [BuyerPageController::class, 'getFAQS']);
+    Route::get('/get-custom-fields', [MainPageController::class, 'getCustomFields']);
+
+    Route::get('/get-faqs', [BuyerPageController::class, 'getFAQS']);
+});

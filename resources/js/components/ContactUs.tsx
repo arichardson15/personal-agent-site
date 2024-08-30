@@ -37,7 +37,10 @@ const ContactUs = () => {
     const handleRadioChange = (e) => {
             setConnectUs(true);
     };
-
+//add event listener isn't great. Need to prevent it from addEventListener every time it renders. Need to make it a use state field
+    //const mainDivRef = userRef<HTMLDivElement>(null); add too main div 'ref=(mainDivRef).
+    //add use effect and drop the event listener in there and change document to mainDivRef.current.addEventListener()
+    //anytime you're thinking document., there is a way to do it from a reference instead which is the way it should be done.
     document.addEventListener('scroll', function() {
         const image = document.querySelector('.image-blur');
         const imagePosition = image.getBoundingClientRect().top;

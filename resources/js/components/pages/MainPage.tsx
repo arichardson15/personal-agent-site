@@ -11,7 +11,6 @@ interface MainPageProps {
     user: {
         first_name: string;
         last_name: string;
-        // Include other user fields as needed
     } | null;
 }
 
@@ -23,40 +22,36 @@ const MainPage = () => {
     const [customFields, setCustomFields] = useState([]);
     const [aboutText, setAboutText] = useState(null);
 
-useEffect(() => {
-    axios.get(`/get-custom-fields`)
-        .then(response => {
-            const fields = response.data;
-            setCustomFields(fields);
-            const aboutMainField = fields.find(field => field.field_name === 'About_Main');
-            setAboutText(aboutMainField ? aboutMainField.field_value : '');
-        })
-        .catch(error => {
-            console.error("There was an error fetching the custom field value!", error);
-        });
-}, []);
+    useEffect(() => {
+        axios.get(`/get-custom-fields`)
+            .then(response => {
+                const fields = response.data;
+                setCustomFields(fields);
+                const aboutMainField = fields.find(field => field.field_name === 'About_Main');
+                setAboutText(aboutMainField ? aboutMainField.field_value : '');
+            })
+            .catch(error => {
+                console.error("There was an error fetching the custom field value!", error);
+            });
+    }, []);
 
 
+    return (<div>
+        <HeaderBanner user={user}></HeaderBanner>
+        <ContactUsMain>
+        </ContactUsMain>
+        <ImageTextImageSection
+            contentImage1Caption={'Jen Mains'}
+            contentImage2Caption={'Ayden Anderson'}
+            headerText={'Who Are We?'}
+            contentText={aboutText}
+            contentImage1={'/images/thumbnail_Jen_Mains.jpg'}
+            contentImage2={'/images/thumbnail_Ayden_Mains.png'}
+            textID={'about-main-text'}>
+        </ImageTextImageSection>
+        <FooterBanner></FooterBanner>
+    </div>);
+};
 
-
-    return (
-        <div>
-                <HeaderBanner user={user}></HeaderBanner>
-            <ContactUsMain>
-            </ContactUsMain>
-                <ImageTextImageSection
-                    contentImage1Caption={'Jen Mains'}
-                    contentImage2Caption={'Ayden Anderson'}
-                    headerText={'Who Are We?'}
-                    contentText={aboutText}
-                    contentImage1={'/images/thumbnail_Jen_Mains.jpg'}
-                    contentImage2={'/images/thumbnail_Ayden_Mains.png'}
-                    textID={'about-main-text'}>
-                </ImageTextImageSection>
-            <FooterBanner></FooterBanner>
-        </div>
-            );
-            };
-
-            const root = ReactDOM.createRoot(document.getElementById('app'));
-        root.render(<MainPage user={user} />);
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<MainPage user={user}/>);

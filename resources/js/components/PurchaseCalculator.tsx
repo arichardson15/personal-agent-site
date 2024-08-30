@@ -13,8 +13,6 @@ interface PurchaseCalculatorProps {
 
 let PurchaseCalculator = forwardRef<HTMLDivElement, PurchaseCalculatorProps>((props, ref) => {
     let {
-        percentageDown,
-        setPercentageDown,
         downPayment,
         setDownPayment,
         loanTerm,
