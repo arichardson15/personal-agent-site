@@ -9,7 +9,7 @@ import TextImageSection from "../TextImageSection";
 import HomeBuyBuyerWidget from "../HomeBuyBuyerWidget";
 import FAQComponenet from "../FAQComponent";
 
-
+//static site generator so the meta tags are fixed rather than running async. content full. Content management systems.
 interface BuyPageProps {
     user: {
         first_name: string;
