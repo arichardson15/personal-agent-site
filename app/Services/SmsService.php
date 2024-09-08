@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use Exception;
 use Illuminate\Support\Facades\Log;
 use Twilio\Rest\Client;
 
@@ -23,7 +24,7 @@ class SmsService
                 'body' => $message,
             ]);
             return true;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage());
             return false;
         }

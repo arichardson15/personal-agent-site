@@ -9,10 +9,9 @@ import FooterBanner from "../FooterBanner";
 import ImageLongTextSection from "../LongTextImageSection";
 import LongTextImageSection from "../LongTextImageSection";
 import TestimonialsSection from "../TestimonialsSection";
-import SectionDivider from "../SectionDivider";
 
 
-interface AboutPageProps {
+interface TestimonialPageProps {
     user: {
         first_name: string;
         last_name: string;
@@ -22,20 +21,15 @@ interface AboutPageProps {
 //laravel breeze to handle users signing in and how to pass user to everything.
 const userElement = document.getElementById('app');
 const user = userElement ? JSON.parse(userElement.getAttribute('data-user')) : null;
-const AboutPage = () => {
+const TestimonialPage = () => {
 
-    const [customFields, setCustomFields] = useState([]);
-    const [aboutAyden, setAboutAyden] = useState('');
-    const [aboutJen, setAboutJen] = useState('');
-    const [aboutHeritage, setAboutHeritage] = useState('');
+    const [testimonials, setTestimonials] = useState('');
 
     useEffect(() => {
-        axios.get(`/get-custom-fields`)
+        axios.get(`/get-testimonials`)
             .then(response => {
-                setAboutJen(response.data.find(item => item.field_name === "About_Jen"))
-                setAboutAyden(response.data.find(item => item.field_name === "About_Ayden"));
-                setAboutHeritage(response.data.find(item => item.field_name === "About_Heritage"));
-                // Set the aboutText state if needed
+                console.log(response.data);
+                setTestimonials(response.data)
             })
             .catch(error => {
                 console.error("There was an error fetching the custom field value!", error);
@@ -49,24 +43,10 @@ const AboutPage = () => {
                 <TestimonialsSection
                     contentImage1={'images/Heritage_Logo_Black_2022.png'}
                     textID={'aboutHeritage'}
-                    headerText={'Meet The Heritage Group'}
-                    contentText={aboutHeritage.field_value}
+                    headerText={'Testimonials'}
+                    contentText={testimonials}
                 ></TestimonialsSection>
-                <SectionDivider></SectionDivider>
-                <LongTextImageSection
-                    contentImage1={'images/thumbnail_Jen_Mains.jpg'}
-                    textID={'aboutJen'}
-                    headerText={'Meet Jen Mains'}
-                    contentText={aboutJen.field_value}
-                />
-                <SectionDivider></SectionDivider>
-                <LongTextImageSection
-                    contentImage1={'images/thumbnail_Ayden_Mains.png'}
-                    textID={'aboutAyden'}
-                    headerText={'Meet Ayden Anderson'}
-                    contentText={aboutAyden.field_value}
-                />
-                <SectionDivider></SectionDivider>
+                <br />
             </div>
             <FooterBanner />
         </div>
@@ -74,4 +54,4 @@ const AboutPage = () => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(<AboutPage />);
+root.render(<TestimonialPage />);

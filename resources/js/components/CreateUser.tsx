@@ -34,11 +34,11 @@ const CreateUser = forwardRef<HTMLDivElement, CreateUserProps>((props, ref) => {
         axios.post('/create-user', data)
             .then(response => {
                 console.log('User created successfully!', response.data);
-                // Handle success (e.g., show a success message, redirect)
+                window.location.reload();
             })
             .catch(error => {
                 console.error('There was an error creating the user!', error);
-                // Handle error (e.g., show an error message)
+                setAlertMessage(error.response.data.message);
             });
     };
 
@@ -55,6 +55,7 @@ const CreateUser = forwardRef<HTMLDivElement, CreateUserProps>((props, ref) => {
         axios.post(`/new-contact`, data)
             .then(response => {
                 console.log("Form data successfully sent!", response.data);
+                window.location.reload();
             })
             .catch(error => {
                 console.error("There was an error sending the form data!", error);
@@ -73,10 +74,9 @@ const CreateUser = forwardRef<HTMLDivElement, CreateUserProps>((props, ref) => {
                 </div>
             </div>
             <div className={'absolute inset-0 flex items-center justify-center'}>
-                <div className="mx-auto mt-6 max-w-xl sm:mt-6"
-                     style={{backgroundColor: 'rgba(254, 238, 221, 0.8)'}}>
+                <div className="mx-auto mt-6 max-w-xl sm:mt-6">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                        <label className="block col-span-2 text-sm font-semibold leading-6 text-red-700">
+                        <label className="block pt-20 col-span-2 text-sm font-semibold leading-6 text-red-700">
                             {alertMessage}
                         </label>
                         <div>

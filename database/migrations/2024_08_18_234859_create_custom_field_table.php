@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('field_name')->nullable();
             $table->string('field_type')->nullable();
             $table->longText('field_value')->nullable();
+            $table->string('imagePath')->nullable();
+            $table->string('imagePath2')->nullable();
         });
     }
 

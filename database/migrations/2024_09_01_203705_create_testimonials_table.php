@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('faqs', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('site_section');
-            $table->string('question');
-            $table->longText('answer');
-            $table->integer('number');
-            $table->text('imagePath');
+            $table->string('name');
+            $table->longText('testimonial');
+            $table->string('image')->nullable();
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('faq');
+        Schema::dropIfExists('testimonials');
     }
 };

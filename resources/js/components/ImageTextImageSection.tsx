@@ -37,7 +37,7 @@ let ImageTextImageSection = forwardRef<HTMLDivElement, ImageTextImageSectionProp
 
     return (
         <div  className="py-16">
-            <div style={{borderRadius: '100px'}} className="mx-auto bg-white h-full grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 xl:grid-cols-4">
+            <div className="mx-auto bg-white h-full grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 xl:grid-cols-4">
                 <div className="flex flex-col items-center justify-center">
                     <img
                         style={{borderRadius: '100px'}}

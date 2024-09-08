@@ -6,6 +6,7 @@ import ImageTextImageSection from "../ImageTextImageSection";
 import axios from "axios";
 import ContactUsMain from "../ContactUsMain";
 import FooterBanner from "../FooterBanner";
+import SectionDivider from "../SectionDivider";
 
 interface MainPageProps {
     user: {
@@ -21,6 +22,7 @@ const user = userElement ? JSON.parse(userElement.getAttribute('data-user')) : n
 const MainPage = () => {
     const [customFields, setCustomFields] = useState([]);
     const [aboutText, setAboutText] = useState(null);
+    const [mainImage, setMainImage] = useState('');
 
     useEffect(() => {
         axios.get(`/get-custom-fields`)
@@ -29,6 +31,8 @@ const MainPage = () => {
                 setCustomFields(fields);
                 const aboutMainField = fields.find(field => field.field_name === 'About_Main');
                 setAboutText(aboutMainField ? aboutMainField.field_value : '');
+                const mainPageImage = fields.find(field => field.field_name === 'Main_Page_Image');
+                setMainImage(mainPageImage ? mainPageImage.imagePath: '');
             })
             .catch(error => {
                 console.error("There was an error fetching the custom field value!", error);
@@ -38,8 +42,9 @@ const MainPage = () => {
 
     return (<div>
         <HeaderBanner user={user}></HeaderBanner>
-        <ContactUsMain>
+        <ContactUsMain user={user} image={mainImage}>
         </ContactUsMain>
+        <SectionDivider></SectionDivider>
         <ImageTextImageSection
             contentImage1Caption={'Jen Mains'}
             contentImage2Caption={'Ayden Anderson'}

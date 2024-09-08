@@ -8,6 +8,7 @@ import Login from "../CreateUser";
 import SignIn from "../SignIn";
 import CreateUser from "../CreateUser";
 import ForgotPassword from "../ForgotPassword";
+import SectionDivider from "../SectionDivider";
 
 interface LoginProps {
     user: {
@@ -34,10 +35,11 @@ const LoginPage = () => {
     }, []);
 
     return (
-        <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{height: '100%'}}>
+        <div id="global-background" className="bg-white min-h-screen flex flex-col" style={{height: '100%'}}>
             <HeaderBanner user={user}></HeaderBanner>
+            <br/>
             <img
-                alt="MN Heritage Group Logo"
+                alt="The Heritage Group Logo"
                 src="/images/Heritage_Logo_Black_2022.png"
                 className="mx-auto h-36 w-auto"
             />

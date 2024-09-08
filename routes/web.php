@@ -1,7 +1,12 @@
 <?php
 
 use App\Http\Controllers\BuyerPageController;
+use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\LoginPageController;
 use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\SellerPageController;
+use App\Http\Controllers\TestimonialsPageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -12,9 +17,14 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about-page');
 });
+
+Route::get('/buyer-search', function () {
+    return view('buyer-search-page');
+});
+
 Route::get('/buy', [BuyerPageController::class, 'show'])->name('buy.page');
 
-Route::get('/sell', [\App\Http\Controllers\SellerPageController::class, 'show'])->name('sell.page');
+Route::get('/sell', [SellerPageController::class, 'show'])->name('sell.page');
 
 Route::get('/login', function () {
     return view('login-page');
@@ -36,21 +46,28 @@ Route::get('/manager', function () {
 Route::get('/edit-faqs', function () {
     return view('faq-manager-page');
 });
-Route::post('/new-contact', [\App\Http\Controllers\ContactFormController::class, 'sendContactForm']);
+Route::post('/new-contact', [ContactFormController::class, 'sendContactForm']);
 
-Route::post('/change-password', [\App\Http\Controllers\LoginPageController::class, 'updatePassword']);
+Route::post('/change-password', [LoginPageController::class, 'updatePassword']);
 
-Route::post('/create-user', [\App\Http\Controllers\LoginPageController::class, 'createUser']);
+Route::post('/create-user', [LoginPageController::class, 'createUser']);
 
-Route::post('/save-field', [\App\Http\Controllers\ManagerController::class, 'saveField']);
+Route::post('/save-field', [ManagerController::class, 'saveField']);
 
-Route::post('/login', [\App\Http\Controllers\LoginPageController::class, 'logInUser']);
+Route::post('/create-testimonial', [ManagerController::class, 'createTestimonial']);
 
-Route::post('/logOut', [\App\Http\Controllers\LoginPageController::class, 'logOutUser']);
+Route::post('/login', [LoginPageController::class, 'logInUser']);
 
-Route::middleware('auth')->group(function () {
+Route::post('/logOut', [LoginPageController::class, 'logOutUser']);
+Route::get('/get-custom-fields', [MainPageController::class, 'getCustomFields']);
 
-    Route::get('/get-custom-fields', [MainPageController::class, 'getCustomFields']);
+Route::get('/get-faqs', [BuyerPageController::class, 'getFAQS']);
 
-    Route::get('/get-faqs', [BuyerPageController::class, 'getFAQS']);
-});
+Route::get('/get-testimonials', [TestimonialsPageController::class, 'getTestimonials']);
+
+//Route::middleware('auth')->group(function () {
+//
+//    Route::get('/get-custom-fields', [MainPageController::class, 'getCustomFields']);
+//
+//    Route::get('/get-faqs', [BuyerPageController::class, 'getFAQS']);
+//});

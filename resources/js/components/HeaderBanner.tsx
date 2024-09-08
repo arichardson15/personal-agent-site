@@ -42,32 +42,31 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
 
     return (
         <div>
-                <header>
-                    <nav className="relative px-4 lg:px-6 py-9">
+                <header style={{backgroundColor: '#cec7b9', maxHeight: '94px'}}>
+                    <nav className="relative px-4 lg:px-6" style={{maxHeight: '94px'}}>
                           <span
                               style={{
-                                  content: '""',
                                   position: 'absolute',
                                   top: '0', // Adjust position as needed
                                   left: '0', // Position it on the left side
-                                  width: '280px', // Adjust this percentage as needed
-                                  height: '185px', // Adjust height as needed
+                                  width: '190px', // Adjust this percentage as needed
+                                  height: '180px', // Adjust height as needed
                                   backgroundColor: '#203128',
-                                  borderTopRightRadius: '1000px', // Apply rounding to the right corners
-                                  borderBottomRightRadius: '1000px',
-                                  zIndex: 0, // Ensure it does not cover the nav content
+                                  borderBottomRightRadius: '110px',
+                                  zIndex: 10, // Ensure it does not cover the nav content
                               }}
                           />
                         <a href="/"
-                           className="absolute mt-5 ml-5 top-0 left-0 z-20">
+                           className="absolute max-h-24 mt-3 top-0 left-0 z-20">
                             <img
                                 src="/images/Heritage_Logo_White_2022.png"
-                                className="mr-3 h-6 lg:h-36 pl-24"
+                                className="mr-3 h-6 lg:h-36 pl-4"
                                 alt="Heritage Logo"
                             />
                         </a>
                         <div
-                            className="flex flex-wrap lg:h-28 justify-between items-center mx-auto max-w-screen-xl relative z-10">
+                            className="flex flex-wrap lg:h-28 justify-between items-center mx-auto max-w-screen-xl relative" style={{maxHeight: '80px'}}>
+
                             <a href="/" className="flex items-center">
 
                                 <span
@@ -111,7 +110,8 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
                                         href="/login"
                                         className="block py-2 font-grotesk text-2xl pr-4 pl-3 text-white rounded
                     bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-black
-                    dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                    focus:outline-none dark:focus:ring-gray-800"
+                                        style={{maxHeight: '94px'}}
                                     >
                                         Log in
                                     </a>
@@ -119,6 +119,7 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
 
                             </div>
                             <div
+                                style={{maxHeight: '94px'}}
                                  className="justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
                                  id="mobile-menu-2">
                                 <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-16 lg:mt-0 size-max text-2xl">

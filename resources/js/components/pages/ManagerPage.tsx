@@ -32,8 +32,18 @@ const ManagerPage = () => {
     return (
         <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{ height: '100%' }}>
             <HeaderBanner user={user} />
-            <div className="flex-grow">
+            <div className="flex-grow mt-28">
                 <a href={"/edit-faqs"}>View FAQs</a>
+                <div>
+                    <CustomTextField
+                        field_name={'Testimonial Giver'}
+                        field_value={'Testimonial'}
+                        table_name={'testimonials'}
+                        id={'testimonials'}
+                        customFieldName={true}
+                        section={'New Testimonial'}>
+                    </CustomTextField>
+                </div>
                 <div id='custom-fields'>
                     {customFields.map(field => (
                         <CustomTextField key={field.id}
@@ -41,7 +51,9 @@ const ManagerPage = () => {
                                          table_name={'custom_fields'}
                                          field_value={field.field_value}
                                          customFieldName={false}
-                                         field_name={field.field_name} />
+                                         image={field.imagePath}
+                                         image2={field.imagePath2}
+                                         field_name={field.field_name}/>
                     ))}
                 </div>
             </div>
