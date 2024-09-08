@@ -19,9 +19,9 @@ const user = userElement ? JSON.parse(userElement.getAttribute('data-user')) : n
 const ContactUsPage = () => {
 
     return (
-        <div id="global-background" className={"bg-secondary"} style={{height: '100%'}}>
+        <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{height: '100%'}}>
             <HeaderBanner user={user}></HeaderBanner>
-            <ContactUs></ContactUs>
+            <ContactUs user={user}></ContactUs>
             <FooterBanner></FooterBanner>
         </div>
     );

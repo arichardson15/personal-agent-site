@@ -87,7 +87,8 @@ const FooterBanner = forwardRef<HTMLDivElement, FooterBannerProps>((props, ref) 
                 <nav aria-label="Footer" className="-mb-6 text-white columns-2 sm:flex sm:justify-center sm:space-x-12">
                     {navigation.main.map((item) => (
                         <div key={item.name} className="pb-6 text-white">
-                            <a href={item.href} className="text-sm text-white leading-6 text-gray-600 hover:text-gray-900">
+                            <a href={item.href}
+                               className="text-sm text-white leading-6 text-gray-600 hover:text-gray-900">
                                 {item.name}
                             </a>
                         </div>
@@ -111,7 +112,9 @@ const FooterBanner = forwardRef<HTMLDivElement, FooterBannerProps>((props, ref) 
                         alt="Keller Williams Logo"
                     />
                 </div>
-                <p className="mt-10 text-white text-center text-xs leading-5 text-gray-500">
+                <p className="mt-2 text-white text-center leading-5 text-gray-500"
+                    style={{fontSize: '10px'}}>Keller Williams is an independent owned and operated. </p>
+                <p className="mt-8 text-white text-center text-xs leading-5 text-gray-500">
                     &copy; 2024 The Heritage Group. All rights reserved. | Site Created and Designed by ALR Custom - Web
                     Solutions.
                     <a href="mailto:allen.richardson@hotmail.com"

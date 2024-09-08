@@ -4,38 +4,66 @@ namespace App\Http\Controllers;
 
 use App\Models\CustomFields;
 use App\Models\FAQS;
-use App\Models\SiteUsers;
+use App\Models\Testimonials;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 
 class ManagerController extends Controller
 {
     function saveField(Request $request)
     {
-        if($request->table_name === 'faqs'){
+        // Handle FAQs table
+        if ($request->table_name === 'faqs') {
             $field = FAQS::where('id', $request->id)->first();
-            if ($field) {
-                $field->answer = $request->newFieldValue;
-                $field->question = $request->newFieldName;
-                $field->save();
+            if (!$field) {
+                return response()->json(['message' => 'Field not found'], 404);
             }
-            else {
-                return 'Field not found';
+
+            $field->question = $request->newFieldName;
+            $field->answer = $request->newFieldValue;
+
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('images', 'public');
+                $field->imagePath = $imagePath;
             }
-        }
 
-        // Find the first record with the matching field_name
-        $field = CustomFields::where('id', $request->id)->first();
-
-        if ($field) {
-            $field->field_value = $request->newFieldValue;
             $field->save();
-        }
-        else{
-            return 'Field not found';
+
+            return response()->json(['message' => 'FAQ saved successfully']);
         }
 
-        return 'Field Saved Successfully';
+        // Handle CustomFields table
+        $field = CustomFields::where('id', $request->id)->first();
+        if (!$field) {
+            return response()->json(['message' => 'Field not found'], 404);
+        }
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $field->imagePath = asset('storage/' . $imagePath);
+        }
+
+        if ($request->hasFile('image2')) {
+            $imagePath2 = $request->file('image2')->store('images', 'public');
+            $field->imagePath2 = asset('storage/' . $imagePath2);
+        }
+
+        $field->field_value = $request->newFieldValue;
+        $field->save();
+
+        return response()->json(['message' => 'Field saved successfully']);
+    }
+
+
+    function createTestimonial(Request $request)
+    {
+        $testimonialValue = $request->newFieldValue;
+        $name = $request->newFieldName;
+
+        $testimonial = new Testimonials();
+        $testimonial->created_at = date("Y-m-d H:i:s");
+        $testimonial->updated_at = date("Y-m-d H:i:s");
+        $testimonial->name = $name;
+        $testimonial->testimonial = $testimonialValue;
+        $testimonial->save();
     }
 }

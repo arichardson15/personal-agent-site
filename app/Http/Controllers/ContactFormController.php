@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Log;
@@ -39,7 +40,7 @@ class ContactFormController extends Controller
         $to = config('app.phone');
         try {
             $success = $this->smsService->sendSms($to, $message);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
         }
 

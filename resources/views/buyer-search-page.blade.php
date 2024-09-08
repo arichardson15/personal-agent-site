@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Component in Blade</title>
+    <title>About Keller Williams Page</title>
     @viteReactRefresh
-    @vite(['resources/js/components/pages/TestimonialPage.tsx'])
+    @vite(['resources/js/components/pages/BuyerSearchPage.tsx'])
 </head>
 <body>
 <div id="global-background" className={"bg-secondary"}>
@@ -14,6 +14,6 @@
 </div>
 
 <!-- Vite build scripts -->
-@vite(['resources/css/app.css', 'resources/js/components/pages/TestimonialPage.tsx'])
+@vite(['resources/css/app.css', 'resources/js/components/pages/BuyerSearchPage.tsx'])
 </body>
 </html>

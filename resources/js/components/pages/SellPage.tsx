@@ -8,6 +8,7 @@ import FooterBanner from "../FooterBanner";
 import FAQComponenet from "../FAQComponent";
 import HomeBuySellerWidget from "../HomeBuySellerWidget";
 import WhySellWithUs from "../WhySellWithUs";
+import SellerSpotlightSection from "../SellerSpotlightSection";
 
 
 interface SellPageProps {
@@ -55,17 +56,15 @@ const SellPage = () => {
     return (
         <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{height: '100%'}}>
             <HeaderBanner user={user}/>
-            <div className={"flex-grow"}>
+            <div className={"flex-grow bg-white"}>
                 <WhySellWithUs whySellWithUs={whySellWithUs}></WhySellWithUs>
-                <br/>
 
             <HomeBuySellerWidget
                 contentText={'The Homebot tool will give your house valuation based on the market around it. Please keep in mind the numbers provided are just estimates. '}
                 headerText={'Home Value'}></HomeBuySellerWidget>
-            <br/>
-            <br/>
+                <SellerSpotlightSection></SellerSpotlightSection>
             {viewFAQS === false ? (
-                <div className={"text-xl font-grotesk font-bold tracking-tight text-center text-gray-900 sm:text-2xl"}>
+                <div className={"text-xl font-grotesk pb-1 font-bold tracking-tight text-center text-gray-900 sm:text-2xl"}>
                     <button className={"mt-4 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"}
                             onClick={() => setViewFAQS(true)}>
                         Want to learn more? Take a look at some of our most asked questions!
@@ -74,20 +73,22 @@ const SellPage = () => {
 
             ) : (
                 <>
-                <div className={"text-xl font-grotesk font-bold self-center tracking-tight text-gray-900 sm:text-2xl"}
-                     id="faqs">
-                    <button className={"mt-4 px-4 p-14 py-2 bg-tertiary mb-3.5 font-bold font-grotesk text-white rounded"}
+                    <div
+                        className={"text-xl font-grotesk font-bold pb-1 text-center self-center tracking-tight text-gray-900 sm:text-2xl"}
+                        id="faqs">
+                        <button
+                            className={"mt-4 px-4 p-14 py-2 bg-tertiary mb-3.5 font-bold font-grotesk text-white rounded"}
                             onClick={() => setViewFAQS(false)}>
-                        Collapse Frequently Asked Questions
-                    </button>
-                </div>
-                <div>
-                    {faqs.length > 0 ? (
-                        faqs.map((faq, index) => (
-                            <FAQComponenet
-                                key={index}
-                                faqQuestion={faq.question || ''}
-                                faqAnswer={faq.answer || ''}
+                            Collapse Frequently Asked Questions
+                        </button>
+                    </div>
+                    <div>
+                        {faqs.length > 0 ? (
+                            faqs.map((faq, index) => (
+                                <FAQComponenet
+                                    key={index}
+                                    faqQuestion={faq.question || ''}
+                                    faqAnswer={faq.answer || ''}
                                 faqQuestionCount={faq.number || ''}
                             />
                         ))
@@ -97,7 +98,6 @@ const SellPage = () => {
                 </div>
                 </>
             )}
-            <br/>
             </div>
 
             <FooterBanner/>

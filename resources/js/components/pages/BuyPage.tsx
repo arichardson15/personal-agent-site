@@ -8,6 +8,8 @@ import FooterBanner from "../FooterBanner";
 import TextImageSection from "../TextImageSection";
 import HomeBuyBuyerWidget from "../HomeBuyBuyerWidget";
 import FAQComponenet from "../FAQComponent";
+import BuyerSearchSection from "../BuyerSearchSection";
+import SectionDivider from "../SectionDivider";
 
 //static site generator so the meta tags are fixed rather than running async. content full. Content management systems.
 interface BuyPageProps {
@@ -42,8 +44,8 @@ const BuyPage = () => {
             .then(response => {
                 const whyBuyWithHeritageField = response.data.find((item: any) => item.field_name === "Why_Buy_With_Heritage");
                 const whatSetsUsApartField = response.data.find((item: any) => item.field_name === "What_Sets_Us_Apart");
-                setWhyBuyWithHeritage(whyBuyWithHeritageField?.field_value || '');
-                setWhatSetsUsApart(whatSetsUsApartField?.field_value || '');
+                setWhyBuyWithHeritage(whyBuyWithHeritageField || '');
+                setWhatSetsUsApart(whatSetsUsApartField || '');
             })
             .catch(error => {
                 console.error("There was an error fetching the custom field value!", error);
@@ -57,19 +59,17 @@ const BuyPage = () => {
     return (
         <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{height: '100%'}}>
             <HeaderBanner user={user}/>
-            <br/>
-            <div className={"flex-grow"}>
-                <TextImageSection contentText={whyBuyWithHeritage}
+            <div className={"flex-grow bg-white"}>
+                <TextImageSection contentText={whyBuyWithHeritage?.field_value}
                                   textID={'whyBuyWithHeritage'}
                                   headerText={'Why Buy With Heritage?'}
-                                  contentImage1={'images/mortgage-calculator-picture.jpeg'}
+                                  contentImage1={whyBuyWithHeritage?.imagePath}
 
                 ></TextImageSection>
-                <br/>
+                <BuyerSearchSection></BuyerSearchSection>
                 <HomeBuyBuyerWidget
                     contentText={'The Homebot tool is a great way to see the value in a certain city. Please keep in mind the numbers provided are just averages. '}
                     headerText={'Home Prices'}></HomeBuyBuyerWidget>
-                <br/>
                 <ImageTextSection
                     contentImage1={'images/mortgage-calculator-picture.jpeg'}
                     textID={'mortgageQuestions'}
@@ -87,14 +87,12 @@ const BuyPage = () => {
                         </>
                     }
                 />
-                <br/>
-                <TextImageSection contentText={whatSetsUsApart}
+                <TextImageSection contentText={whatSetsUsApart?.field_value}
                                   textID={'whatSetsUsApart'}
                                   headerText={'What makes Heritage different?'}
-                                  contentImage1={'images/mortgage-calculator-picture.jpeg'}
+                                  contentImage1={whatSetsUsApart?.imagePath}
 
                 ></TextImageSection>
-                <br/>
                 {viewFAQS === false ? (
                     <div className={"text-xl font-grotesk font-bold tracking-tight text-center text-gray-900 sm:text-2xl"}>
                         <button className={"mt-4 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"}

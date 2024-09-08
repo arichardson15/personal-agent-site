@@ -48,6 +48,10 @@ let MonthlyPaymentCalculator = forwardRef<HTMLDivElement, MonthlyPaymentCalculat
         setMonthlyPayment(newMonthlyPayment);
     }, [purchasePrice, downPayment, loanTerm, interestRate]);
 
+    useEffect(() => {
+        setPercentageDown( downPayment / purchasePrice * 100);
+    })
+
     const handleDownChange = (e) => {
         const { id, value } = e.target;
         if (id === 'cashDownPayment') {
