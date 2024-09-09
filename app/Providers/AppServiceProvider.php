@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,10 +18,8 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot()
+    public function boot(): void
     {
-        View::composer('*', function ($view) {
-            $view->with('user', Auth::user());
-        });
+        Vite::prefetch(concurrency: 3);
     }
 }

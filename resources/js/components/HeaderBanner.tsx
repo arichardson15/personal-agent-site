@@ -70,7 +70,7 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
                             <a href="/" className="flex items-center">
 
                                 <span
-                                    className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+                                    className="self-center text-xl font-semibold whitespace-nowrap"></span>
                             </a>
                             <div  ref={dropdownRef} className="flex items-center lg:order-2">
                                 {user && user.first_name ? (
@@ -79,8 +79,8 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
                                         href="#"
                                         onClick={handleDropdownToggle}
                                         className="block py-2 font-grotesk text-2xl pr-4 pl-3 text-white rounded
-                    bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-black
-                    dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                    bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0
+                    focus:outline-none"
                                     >
                                         Hello, {user.first_name}
                                         {isDropdownOpen && (
@@ -109,8 +109,8 @@ const HeaderBanner = forwardRef<HTMLDivElement, HeaderBannerProps>((props, ref) 
                                     <a
                                         href="/login"
                                         className="block py-2 font-grotesk text-2xl pr-4 pl-3 text-white rounded
-                    bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-black
-                    focus:outline-none dark:focus:ring-gray-800"
+                    bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0
+                    focus:outline-none"
                                         style={{maxHeight: '94px'}}
                                     >
                                         Log in
