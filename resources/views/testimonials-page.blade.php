@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Component in Blade</title>
+    <title>Testimonials</title>
+    <link rel="icon" href="{{ asset('images/Heritage_Logo_White_2022.png') }}" type="image/png">
     @viteReactRefresh
     @vite(['resources/js/components/pages/TestimonialPage.tsx'])
 </head>

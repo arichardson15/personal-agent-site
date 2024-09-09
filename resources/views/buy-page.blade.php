@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Component in Blade</title>
+    <title>Buying with The Heritage Group</title>
     @viteReactRefresh
     @vite(['resources/js/components/pages/BuyPage.tsx'])
+    <link rel="icon" href="{{ asset('images/Heritage_Logo_White_2022.png') }}" type="image/png">
 </head>
 <body>
 <div id="global-background" className={"bg-secondary"}>
