@@ -10,7 +10,7 @@ class BuyerPageController extends Controller
 {
     public function show()
     {
-        $faqs = FAQS::where('siteSection', 'buy')->get();
+        $faqs = FAQS::where('site_section', 'buy')->get();
 
         $rows = FAQS::all();
 

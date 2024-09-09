@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Component in Blade</title>
     @viteReactRefresh
-    @vite(['resources/js/pages/MainPage.tsx'])
+    @vite(['resources/js/components/pages/MainPage.tsx'])
 </head>
 <body>
 <div id="global-background" className={"bg-secondary"}>

@@ -32,8 +32,8 @@ const SellPage = () => {
     useEffect(() => {
         const faqData = document.getElementById('app').getAttribute('data-faqs');
         const parsedFaqData = JSON.parse(faqData);
-        const filteredFaqs = parsedFaqData.filter(faq => faq.siteSection === 'Sell');
-        const whySellWithUs = parsedFaqData.filter(faq => faq.siteSection === 'WhySellWithUs');
+        const filteredFaqs = parsedFaqData.filter(faq => faq.site_section === 'Sell');
+        const whySellWithUs = parsedFaqData.filter(faq => faq.site_section === 'WhySellWithUs');
         setFAQS(filteredFaqs);
         setWhySellWithUs(whySellWithUs)
     }, []);

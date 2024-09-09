@@ -15,7 +15,7 @@ class FAQS extends Model
     protected $fillable = [
         'created_at',
         'updated_at',
-        'siteSection',
+        'site_section',
         'question',
         'answer',
         'number',
