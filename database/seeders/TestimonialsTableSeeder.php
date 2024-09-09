@@ -14,12 +14,12 @@ class TestimonialsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('testimonials')->delete();
-        
+
         \DB::table('testimonials')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'created_at' => '2024-09-01 15:48:18',
@@ -28,7 +28,7 @@ class TestimonialsTableSeeder extends Seeder
                 'testimonial' => '5-star experience. Ayden was a joy to work with. She is both knowledgeable and kind. She walked us through a LOT of houses, and never batted an eye. She was prompt and responsive to all of our emails, texts, and questions. She has such a servant heart which is so refreshing. When we are ready for a new place in a couple years, we will definitely be giving her a call. God bless Ayden Mains.',
                 'image' => NULL,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'created_at' => '2024-09-01 15:48:26',
@@ -37,7 +37,7 @@ class TestimonialsTableSeeder extends Seeder
                 'testimonial' => 'Ayden is the very best! She is so organized and the best communicator which made the process of buying a house extremely easy. She really makes her clients the priority and gets the job done!',
                 'image' => NULL,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'created_at' => '2024-09-01 15:48:49',
@@ -46,7 +46,7 @@ class TestimonialsTableSeeder extends Seeder
             'testimonial' => 'Our experience with the Heritage Group was above and beyond than what we ever expected. Ayden and Ben were professional throughout the entire process of selling our home and the communication was stellar! We were able to list our home only one month after making the decision to sell/move out of state and we got an offer (which we accepted) within the first weekend of going live! Thank you so much for making this a stress free experience for us! Your team ROCKS!',
                 'image' => NULL,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'created_at' => '2024-09-01 15:49:06',
@@ -55,7 +55,7 @@ class TestimonialsTableSeeder extends Seeder
             'testimonial' => 'Ayden was such a pleasure to work with! Definitely recommending to my friends :)',
             'image' => NULL,
         ),
-        4 => 
+        4 =>
         array (
             'id' => 5,
             'created_at' => '2024-09-01 15:49:24',
@@ -64,7 +64,7 @@ class TestimonialsTableSeeder extends Seeder
             'testimonial' => 'Best realtors hands down. Every time we had a question they were very punctual to answer and always gave us an answer and kept us updated during the whole process!',
             'image' => NULL,
         ),
-        5 => 
+        5 =>
         array (
             'id' => 6,
             'created_at' => '2024-09-01 15:49:43',
@@ -73,7 +73,7 @@ class TestimonialsTableSeeder extends Seeder
             'testimonial' => 'Ayden was fantastic to work with!',
             'image' => NULL,
         ),
-        6 => 
+        6 =>
         array (
             'id' => 7,
             'created_at' => '2024-09-01 15:49:57',
@@ -82,7 +82,7 @@ class TestimonialsTableSeeder extends Seeder
             'testimonial' => 'Ayden did a wonderful job! She should be proud of herself as I had told her my past dealings with the realtors have not been good. I was thoroughly impressed.',
             'image' => NULL,
         ),
-        7 => 
+        7 =>
         array (
             'id' => 8,
             'created_at' => '2024-09-01 15:50:25',
@@ -91,26 +91,6 @@ class TestimonialsTableSeeder extends Seeder
         'testimonial' => 'Amazing. Our experience with The Heritage Group at Keller Williams was amazing. In a current market that is turbulent and crazy at best we always felt assured and well informed. No matter how many times you move there are always plenty of questions. They were always quick to respond and give us great information to help us make the best decisions along the way in this process. Although they are young, they are mature and wise beyond their years in this highly competitive field !!! It was encouraging to see young realtors so passionate and knowledgeable about their profession!! I\'d highly recommend these two and KW (we actually already have). We are very happy with our decision to partner with Keller Williams Heritage Group.',
             'image' => NULL,
         ),
-        8 => 
-        array (
-            'id' => 9,
-            'created_at' => '2024-09-01 23:15:50',
-            'updated_at' => '2024-09-01 23:15:50',
-            'name' => 'Testing',
-            'testimonial' => 'asldkjfhaskljhfaklsjdhf lkjasdhflkjashdflkjahsflkjashdfkljashdkfjhasdkjhfkjas dhfkjasdhfkjasdhfjsdahjfhdhfkajsdhflkasjhfalskdhfklasjd hfklasdhfklasdjhfkdjhadsklhfdkajshkadlshkajsdhfkljasdhflkajsdfhTestimonial',
-            'image' => NULL,
-        ),
-        9 => 
-        array (
-            'id' => 10,
-            'created_at' => '2024-09-03 17:17:54',
-            'updated_at' => '2024-09-03 17:17:54',
-            'name' => 'Ayden A.',
-            'testimonial' => 'alskdjfalskdjfaldsjf;ldsajf;ldsajf;lkdsajfdaa;sdkjf;dsalkjf;lkdsajf;lkdsajlfksa',
-            'image' => NULL,
-        ),
     ));
-        
-        
     }
 }
