@@ -12,9 +12,10 @@ let MobileComingSoon = forwardRef<HTMLDivElement, MobileComingSoonProps>((props,
     return (
         <>
 
-            <div className="py-3 bg-secondary">
+            <div className="py-3 bg-secondary"
+            style={{height: '100vh'}}>
                 <div
-                    className="mx-auto max-w-7xl bg-white lg:px-8"
+                    className="mx-auto max-w-7xl lg:px-8"
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'auto 1fr',
@@ -24,7 +25,7 @@ let MobileComingSoon = forwardRef<HTMLDivElement, MobileComingSoonProps>((props,
                     <img
                         style={{
                             borderRadius: '100px',
-                            maxWidth: '100%',
+                            maxWidth: '50%',
                             gridArea: 'image',
                             placeSelf: 'center',
                             paddingBottom: '20px',
@@ -33,7 +34,7 @@ let MobileComingSoon = forwardRef<HTMLDivElement, MobileComingSoonProps>((props,
                         src={'images/Heritage_Logo_Black_2022.png'}
                         alt="Content"
                     />
-                    <div  style={{gridArea: 'text', background: 'rgba(255, 255, 255, 0.9)'}} className={''}>
+                    <div  style={{gridArea: 'text', background: 'rgba(255, 255, 255, 0.9)'}} className={'p-4'}>
                         <h2 className="text-3xl font-grotesk font-bold tracking-tight text-gray-900 sm:text-4xl">
                             Mobile Coming Soon!
                         </h2>
