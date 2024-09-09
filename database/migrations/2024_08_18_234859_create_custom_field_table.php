@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('custom_field');
+        Schema::dropIfExists('custom_fields');
     }
 };
