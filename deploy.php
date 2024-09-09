@@ -21,7 +21,11 @@ task('npm:build', function () {
 after('deploy:update_code', 'npm:install');
 after('npm:install', 'npm:build');
 
-
+// Composer Install
+task('composer:install', function () {
+    run('cd {{release_path}} && composer install');
+});
+after('artisan:migrate', 'composer:install');
 // Hosts
 
 host('173.22.163.66')
