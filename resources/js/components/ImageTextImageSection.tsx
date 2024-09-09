@@ -31,7 +31,7 @@ let ImageTextImageSection = forwardRef<HTMLDivElement, ImageTextImageSectionProp
                 console.log(elementHeight);
                 setTextHeight(elementHeight + 'px');
             }
-        }, 100);
+        }, 500);
     }, [textID]);
 
 
