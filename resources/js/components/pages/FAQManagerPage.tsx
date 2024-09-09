@@ -43,7 +43,7 @@ const ManagerPage = () => {
                                          field_value={field.answer}
                                          field_name={field.question}
                                          customFieldName={true}
-                                         section={field.siteSection}/>
+                                         section={field.site_section}/>
                     ))}
                 </div>
             </div>
