@@ -62,7 +62,7 @@ const BuyPage = () => {
             <div className={"flex-grow bg-white"}>
                 <TextImageSection contentText={whyBuyWithHeritage?.field_value}
                                   textID={'whyBuyWithHeritage'}
-                                  headerText={'Why Buy With Heritage?'}
+                                  headerText={'Why Purchase With The Heritage Group?'}
                                   contentImage1={whyBuyWithHeritage?.imagePath}
 
                 ></TextImageSection>

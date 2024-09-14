@@ -43,7 +43,8 @@ const ManagerPage = () => {
                                          field_value={field.answer}
                                          field_name={field.question}
                                          customFieldName={true}
-                                         section={field.site_section}/>
+                                         section={field.site_section}
+                                         image={field.imagePath}/>
                     ))}
                 </div>
             </div>

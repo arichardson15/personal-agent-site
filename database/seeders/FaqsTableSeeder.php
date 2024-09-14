@@ -142,7 +142,7 @@ class FaqsTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'site_section' => 'WhySellWithUs',
-                'question' => 'Why Sell with Heritage?',
+                'question' => 'Why Sell with The Heritage Group?',
                 'answer' => 'Selling your home is a significant decision, and choosing the right partner can make all the difference. At The Heritage Group, we bring a blend of expertise, dedication, and personalized service that sets us apart.',
                 'number' => 1,
                 'imagePath' => NULL,

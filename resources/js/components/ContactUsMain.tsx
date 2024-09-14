@@ -73,11 +73,11 @@ let ContactUsMain = forwardRef<HTMLDivElement, ContactUsMainProps>((props, ref) 
                         </p>
                         <a
                             className="mt-4 border-white border-2 mx-5 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
-                            href={'/buy'}>Buy With Heritage
+                            href={'/buy'}>Buy With The Heritage Group
                         </a>
                         <a
                             className="mt-4 border-white border-2 mx-5 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
-                            href={'/sell'}>Sell With Heritage
+                            href={'/sell'}>Sell With The Heritage Group
                         </a>
                         <button
                             className="mt-4 border-white border-2 mx-5 px-4 py-2 bg-tertiary font-bold font-grotesk text-white rounded"
