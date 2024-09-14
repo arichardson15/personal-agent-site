@@ -63,7 +63,8 @@ const BuyPage = () => {
                 <TextImageSection contentText={whyBuyWithHeritage?.field_value}
                                   textID={'whyBuyWithHeritage'}
                                   headerText={'Why Purchase With The Heritage Group?'}
-                                  contentImage1={whyBuyWithHeritage?.imagePath}
+                                  contentImage1={'/images/Image Width Test.jpg'}
+                                  imageID={'whyBuyWithHeritage'}
 
                 ></TextImageSection>
                 <BuyerSearchSection></BuyerSearchSection>
@@ -91,6 +92,7 @@ const BuyPage = () => {
                                   textID={'whatSetsUsApart'}
                                   headerText={'What makes Heritage different?'}
                                   contentImage1={whatSetsUsApart?.imagePath}
+                                  imageID={'whatSetsUsApart'}
 
                 ></TextImageSection>
                 {viewFAQS === false ? (

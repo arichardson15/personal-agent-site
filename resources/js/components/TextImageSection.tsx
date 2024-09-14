@@ -7,6 +7,7 @@ interface TextImageSectionProps {
     contentImage1Caption?: string;
     headerText?: string;
     textID?: string;
+    imageID?: string;
 }
 
 
@@ -18,18 +19,26 @@ let TextImageSection = forwardRef<HTMLDivElement, TextImageSectionProps>((props,
         contentImage1Caption,
         headerText,
         textID,
+        imageID
     } = props;
 
     const [textHeight, setTextHeight] = useState(20);
+    const [imageWidth, setImageWidth] = useState(20);
 
     useEffect(() => {
         setTimeout(() => {
             const element = document.getElementById(textID);
+            const elementHeight = element.offsetHeight;
             if (element) {
-                const elementHeight = element.offsetHeight;
                 setTextHeight(elementHeight + 'px');
             }
-        }, 100);
+            const imageElement = document.getElementById(imageID);
+            console.log('image width' +imageElement.offsetWidth);
+            console.log('text height' + elementHeight);
+            if(imageElement.offsetWidth > textHeight){
+                setImageWidth(elementHeight + 'px');
+            }
+        }, 500);
     }, []);
 
 
@@ -44,7 +53,8 @@ let TextImageSection = forwardRef<HTMLDivElement, TextImageSectionProps>((props,
                 </div>
                 <div  style={{ display: 'flex',alignItems: 'center', justifyContent: 'center', padding: '10px' }}>
                 <img
-                    style={{borderRadius: '100px', minHeight: "350px", verticalAlign: "middle", height: textHeight}}
+                    id={imageID}
+                    style={{borderRadius: '100px', width: imageWidth, minHeight: "350px", verticalAlign: "middle", height: textHeight}}
                     className={'h-full align-middle'}
                     src={contentImage1}
                 />
