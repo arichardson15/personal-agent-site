@@ -63,7 +63,7 @@ const BuyPage = () => {
                 <TextImageSection contentText={whyBuyWithHeritage?.field_value}
                                   textID={'whyBuyWithHeritage'}
                                   headerText={'Why Purchase With The Heritage Group?'}
-                                  contentImage1={'/images/Image Width Test.jpg'}
+                                  contentImage1={whyBuyWithHeritage.imagePath}
                                   imageID={'whyBuyWithHeritage'}
 
                 ></TextImageSection>
