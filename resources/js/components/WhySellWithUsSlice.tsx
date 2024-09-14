@@ -20,6 +20,7 @@ const WhySellWithUsSlice = forwardRef<HTMLButtonElement, WhySellWithUsSliceProps
     } = props;
 
     const [textHeight, setTextHeight] = useState(20);
+    const [imageWidth, setImageWidth] = useState('auto');
     let textOrder = 2;
     let imageOrder = 1;
 
@@ -40,6 +41,19 @@ const WhySellWithUsSlice = forwardRef<HTMLButtonElement, WhySellWithUsSliceProps
         }, 100);
     }, []);
 
+    const handleImageLoad = (event) => {
+        const image = event.target;
+        const imageNaturalWidth = image.naturalWidth;
+
+        // Compare the image height to the text height
+        if (imageNaturalWidth < parseInt(textHeight)) {
+            setImageWidth(textHeight); // Set width to match text height
+        } else {
+            setImageWidth('auto'); // Default width
+        }
+    };
+
+
     return (
         <>
             <br/>
@@ -56,9 +70,11 @@ const WhySellWithUsSlice = forwardRef<HTMLButtonElement, WhySellWithUsSliceProps
                             borderRadius: '100px',
                             minHeight: "200px",
                             verticalAlign: "middle",
-                            height: textHeight
+                            height: textHeight,
+                            width: imageWidth,
                         }}
                         className={'h-full align-middle'}
+                        onLoad={handleImageLoad}
                         src={contentImage}
                     />
                 </div>

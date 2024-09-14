@@ -54,17 +54,17 @@ const AboutPage = () => {
                 ></TestimonialsSection>
                 <SectionDivider></SectionDivider>
                 <LongTextImageSection
-                    contentImage1={'images/thumbnail_Jen_Mains.jpg'}
-                    textID={'aboutJen'}
-                    headerText={'Meet Jen Mains'}
-                    contentText={aboutJen.field_value}
-                />
-                <SectionDivider></SectionDivider>
-                <LongTextImageSection
                     contentImage1={'images/thumbnail_Ayden_Mains.png'}
                     textID={'aboutAyden'}
                     headerText={'Meet Ayden Anderson'}
                     contentText={aboutAyden.field_value}
+                />
+                <SectionDivider></SectionDivider>
+                <LongTextImageSection
+                    contentImage1={'images/thumbnail_Jen_Mains.jpg'}
+                    textID={'aboutJen'}
+                    headerText={'Meet Jen Mains'}
+                    contentText={aboutJen.field_value}
                 />
                 <SectionDivider></SectionDivider>
             </div>
