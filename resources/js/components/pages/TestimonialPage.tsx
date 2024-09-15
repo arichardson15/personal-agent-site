@@ -43,7 +43,7 @@ const TestimonialPage = () => {
             <div className={"flex-grow"}>
                 <div>
                     <label className="text-4xl font-grotesk font-bold flex justify-center py-4">
-                        What is it like to partner with The Heritage Group?
+                        The Heritage Group in Our Client's Words
                     </label>
                     {Object.keys(testimonials).map((key, index) => (
                         <TestimonialsSection
