@@ -1,7 +1,6 @@
 import React, {forwardRef, useEffect, useState} from 'react';
 
-interface ImageTextImageSectionProps {
-    contentText?: string;
+interface ImageImageSectionProps {
     contentImage1?: string;
     contentImage1Caption?: string;
     contentImage2?: string;
@@ -10,36 +9,21 @@ interface ImageTextImageSectionProps {
     textID?: string;
 }
 
-let ImageTextImageSection = forwardRef<HTMLDivElement, ImageTextImageSectionProps>((props, ref) => {
+let ImageImageSection = forwardRef<HTMLDivElement, ImageImageSectionProps>((props, ref) => {
     let {
         contentImage1,
-        contentText,
         contentImage2,
         contentImage1Caption,
         contentImage2Caption,
-        headerText,
-        textID,
     } = props;
 
-    const [textHeight, setTextHeight] = useState(20);
-
-    useEffect(() => {
-        setTimeout(() => {
-            const element = document.getElementById(textID);
-            if (element) {
-                const elementHeight = element.offsetHeight;
-                console.log(elementHeight);
-                setTextHeight(elementHeight + 'px');
-            }
-        }, 500);
-    }, [textID]);
-
-
     return (
-        <div  className="lg:py-16">
-            <div className="mx-auto bg-white h-full grid max-w-7xl gap-x-8 gap-y-10 px-6 lg:px-8 xl:grid-cols-4">
+        <div className="lg:py-16">
+            <div
+                className="mx-auto bg-white h-full flex flex-col md:flex-row items-center justify-center gap-x-8 gap-y-10 px-6 lg:px-8">
                 <div className="flex flex-col items-center justify-center">
                     <img
+                        className="w-full max-w-xs" // Limits the width of the image
                         style={{borderRadius: '100px'}}
                         src={contentImage1}
                     />
@@ -55,19 +39,12 @@ let ImageTextImageSection = forwardRef<HTMLDivElement, ImageTextImageSectionProp
                             textAlign: 'center'
                         }}
                     >
-                        {contentImage1Caption}
-                    </span>
-                </div>
-                <div className="max-w-2xl col-span-2 flex items-center">
-                    <div>
-                        <h2 className="text-3xl font-grotesk font-bold tracking-tight text-gray-900 sm:text-4xl">{headerText}</h2>
-                        <p id={textID} className="mt-6 text-md text-lg leading-8 text-gray-600 font-grotesk whitespace-pre-line">
-                            {contentText}
-                        </p>
-                    </div>
+                {contentImage1Caption}
+            </span>
                 </div>
                 <div className="flex flex-col items-center justify-center">
                     <img
+                        className="w-full max-w-xs" // Limits the width of the image
                         style={{borderRadius: '100px'}}
                         src={contentImage2}
                     />
@@ -83,12 +60,14 @@ let ImageTextImageSection = forwardRef<HTMLDivElement, ImageTextImageSectionProp
                             textAlign: 'center'
                         }}
                     >
-                        {contentImage2Caption}
-                    </span>
+                {contentImage2Caption}
+            </span>
                 </div>
             </div>
         </div>
+
+
     );
 });
 
-export default ImageTextImageSection;
+export default ImageImageSection;

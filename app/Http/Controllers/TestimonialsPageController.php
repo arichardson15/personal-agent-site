@@ -8,16 +8,17 @@ use Illuminate\Http\Request;
 class TestimonialsPageController extends Controller
 {
     public function getTestimonials(){
-        $testimonials = Testimonials::orderby('created_at','DESC')->limit(8)->get();
-        $testimonialsString = '';
+        $testimonials = Testimonials::orderby('created_at', 'DESC')->limit(8)->get();
+        $testimonialsArray = [];
 
         foreach($testimonials as $testimonial){
-            $testimonialsString .= '"' . $testimonial['testimonial'] . '"';
-            $testimonialsString .= '<br><br>';
-            $testimonialsString .= '<strong>' . $testimonial['name'] . '</strong>';
-            $testimonialsString .= '<br><br><br>';
+            $testimonialsArray[] = [
+                'testimonial' => $testimonial['testimonial'],
+                'name' => $testimonial['name']
+            ];
         }
 
-        return $testimonialsString;
+        return $testimonialsArray;
     }
+
 }
