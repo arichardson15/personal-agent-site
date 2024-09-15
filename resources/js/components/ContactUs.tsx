@@ -18,6 +18,7 @@ let ContactUs = forwardRef<HTMLDivElement, ContactUsProps>((props, ref) => {
     const [message, setMessage] = useState('');
     const [connectUs, setConnectUs] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     useEffect(() => {
         if (user) {
@@ -42,6 +43,7 @@ let ContactUs = forwardRef<HTMLDivElement, ContactUsProps>((props, ref) => {
         axios.post(`/new-contact`, data)
             .then(response => {
                 console.log("Form data successfully sent!", response.data);
+                setSuccessMessage('Message Received! We will be in touch soon.')
             })
             .catch(error => {
                 console.error("There was an error sending the form data!", error);
@@ -70,13 +72,20 @@ let ContactUs = forwardRef<HTMLDivElement, ContactUsProps>((props, ref) => {
 
     return (
 
-        <div className="bg-white">
+        <div className="bg-white sm:pb-1">
             <div>
-                <div className="mx-auto mt-6 max-w-xl p-4 bg-secondary sm:mt-6" style={{borderRadius: '25px'}}>
-                    <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div className="mx-auto mt-6 max-w-xl p-4 bg-secondary sm:mt-6 rounded-none sm:rounded-[25px]">
+                    <label className="block text-center sm:col-span-2 pb-2 text-2xl font-semibold leading-6">
+                        Contact Us
+                    </label>
+                    <div className="grid grid-cols-1 gap-x-8sm:grid-cols-2">
                         <label
-                            className="block justify-self-center col-span-2 text-sm font-semibold leading-6 text-red-700">
+                            className="block text-center sm:col-span-2 text-sm font-semibold leading-6 text-red-700">
                             {alertMessage}
+                        </label>
+                        <label
+                            className="block text-center sm:col-span-2 text-sm font-semibold leading-6">
+                            {successMessage}
                         </label>
                         <div>
                             <label htmlFor="first-name"
@@ -193,7 +202,6 @@ let ContactUs = forwardRef<HTMLDivElement, ContactUsProps>((props, ref) => {
                 </div>
 
             </div>
-            )
         </div>
 
     )

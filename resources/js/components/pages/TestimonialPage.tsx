@@ -9,6 +9,7 @@ import FooterBanner from "../FooterBanner";
 import ImageLongTextSection from "../LongTextImageSection";
 import LongTextImageSection from "../LongTextImageSection";
 import TestimonialsSection from "../TestimonialsSection";
+import {Label} from "@headlessui/react";
 
 
 interface TestimonialPageProps {
@@ -23,7 +24,7 @@ const userElement = document.getElementById('app');
 const user = userElement ? JSON.parse(userElement.getAttribute('data-user')) : null;
 const TestimonialPage = () => {
 
-    const [testimonials, setTestimonials] = useState('');
+    const [testimonials, setTestimonials] = useState({});
 
     useEffect(() => {
         axios.get(`/get-testimonials`)
@@ -37,18 +38,26 @@ const TestimonialPage = () => {
     }, []);
 
     return (
-        <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{ height: '100%' }}>
+        <div id="global-background" className=" justify-center min-h-screen flex flex-col" style={{ height: '100%' }}>
             <HeaderBanner user={user} />
             <div className={"flex-grow"}>
-                <TestimonialsSection
-                    contentImage1={'images/Heritage_Logo_Black_2022.png'}
-                    textID={'aboutHeritage'}
-                    headerText={'Testimonials'}
-                    contentText={testimonials}
-                ></TestimonialsSection>
-                <br />
+                <div>
+                    <label className="text-4xl font-grotesk font-bold flex justify-center py-4">
+                        What is it like to partner with The Heritage Group?
+                    </label>
+                    {Object.keys(testimonials).map((key, index) => (
+                        <TestimonialsSection
+                            key={index} // Add a unique key here
+                            contentImage1={'images/Heritage_Logo_Black_2022.png'}
+                            textID={`testimonial-${index}`} // Ensure the ID is unique
+                            headerText={'Testimonials'}
+                            testimonial={testimonials[key]} // Access the testimonial object
+                        />
+                    ))}
+                    <br/>
+                </div>
             </div>
-            <FooterBanner />
+            <FooterBanner/>
         </div>
     );
 };
