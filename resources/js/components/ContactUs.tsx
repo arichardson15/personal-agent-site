@@ -78,7 +78,7 @@ let ContactUs = forwardRef<HTMLDivElement, ContactUsProps>((props, ref) => {
                     <label className="block text-center sm:col-span-2 pb-2 text-2xl font-semibold leading-6">
                         Contact Us
                     </label>
-                    <div className="grid grid-cols-1 gap-x-8sm:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
                         <label
                             className="block text-center sm:col-span-2 text-sm font-semibold leading-6 text-red-700">
                             {alertMessage}
