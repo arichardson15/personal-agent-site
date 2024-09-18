@@ -10,6 +10,7 @@ import ImageLongTextSection from "../LongTextImageSection";
 import LongTextImageSection from "../LongTextImageSection";
 import TestimonialsSection from "../TestimonialsSection";
 import SectionDivider from "../SectionDivider";
+import TextImageSection from "../TextImageSection";
 
 
 interface AboutPageProps {
@@ -45,13 +46,14 @@ const AboutPage = () => {
     return (
         <div id="global-background" className="bg-secondary min-h-screen flex flex-col" style={{ height: '100%' }}>
             <HeaderBanner user={user} />
-            <div className={"flex-grow"}>
-                <TestimonialsSection
+            <div className={"flex-grow bg-white"}>
+                <LongTextImageSection
                     contentImage1={'images/Heritage_Logo_Black_2022.png'}
                     textID={'aboutHeritage'}
                     headerText={'Meet The Heritage Group'}
                     contentText={aboutHeritage.field_value}
-                ></TestimonialsSection>
+                    imageID={'aboutHeritage'}
+                ></LongTextImageSection>
                 <SectionDivider></SectionDivider>
                 <LongTextImageSection
                     contentImage1={'images/thumbnail_Ayden_Mains.png'}
